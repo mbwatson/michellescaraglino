@@ -1,0 +1,82 @@
+@font-face {
+  font-family: Ringside;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/RingsideExtraWide-Book.otf);
+}
+@font-face {
+  font-family: RingsideNarrow;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/RingsideNarrow-Light.otf);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 15pt;
+  font-family: RingsideNarrow;
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  transition: color 250ms;
+  color: #4d3849;
+}
+a:active,
+a:hover {
+  outline-width: 0;
+  color: #a35470;
+}
+
+small {
+  font-size: 75%;
+}
+
+body {
+  color: #4d3849;
+  font: 100% / 1.33 RingsideNarrow;
+  font-family: RingsideNarrow;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+img {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.45rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  color: inherit;
+  font-family: Ringside, sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 2px;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.025641026rem; }
+h3 { font-size: 1.1rem; }
+h4 { font-size: 1.0rem; }
+h5 { font-size: 0.9rem; }
+h6 { font-size: 0.8rem; }
+

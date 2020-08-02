@@ -1,7 +1,16 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
+import { DefaultLayout } from './src/layout'
+import { theme } from './src/theme'
 
-// You can delete this file if you're not using it
+export const wrapPageElement = ({ element }) => {
+    // props provide same data to Layout as Page element will get
+    // including location, data, etc - you don't need to pass it
+    return (
+        <ThemeProvider theme={ theme }>
+            <DefaultLayout>
+                { element }
+            </DefaultLayout>
+        </ThemeProvider>
+    )
+}

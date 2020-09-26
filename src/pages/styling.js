@@ -40,7 +40,7 @@ const StylingPage = () => {
                         </Paragraph>
                         <Paragraph>
                             If you're interested in any of the following services,
-                            please contact me to schedule a virtual meeting and consultation. (All services will be virtual for the time being)
+                            please contact me to schedule a virtual meeting and consultation. (All services will be virtual for the time being.)
                         </Paragraph>
 
                         <Spacer />
@@ -60,7 +60,7 @@ const StylingPage = () => {
                             <Paragraph>
                                 Using what you have in your closet&mdash;including shoes and accessories&mdash;I help you create modern
                         outfits that express your personality accurately and appropriately
-                                to meet your needs for work, public speaking, etc.
+                                to meet your needs for work, public speaking, photo shoots, etc.
                                 A photo gallery will be kept for easy access to streamline your mornings/meetings/engagements.
                                 If desired, I'm happy to consult with you on your hairstyle/color suitability.
                             </Paragraph>
@@ -144,8 +144,8 @@ const StylingPage = () => {
                                 ` }
                                 author={
                                     <Fragment>
-                                        <a href="https://www.marceyrader.com" target="_blank" rel="noopener noreferrer">Marcey Rader</a>, Productivity Coach, <br/>
-                                        <a href="https://www.amazon.com/Work-Well-Play-More-Clutter-Free-ebook/dp/B07Z5B7CVD" target="_blank" rel="noopener noreferrer">​Work Well, Play More</a>
+                                        <a href="https://www.marceyrader.com" target="_blank" rel="noopener noreferrer">Marcey Rader</a>, Productivity Coach, Author<br/>
+                                        <a href="https://www.amazon.com/Work-Well-Play-More-Clutter-Free-ebook/dp/B07Z5B7CVD" target="_blank" rel="noopener noreferrer">​Work Well. Play More!</a>
                                     </Fragment>
                                 }
                             />

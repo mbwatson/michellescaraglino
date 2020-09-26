@@ -38,11 +38,12 @@ const HairPage = () => {
 
                         <Paragraph>
                             Hello, I’m Michelle Scaraglino!
-                            I entered the beauty industry in 2006 at the Aveda Institute of Chapel Hill,
+                            I entered the beauty industry in 2006 at
+                            the <a href="https://aveda.edu/locations/location/chapel-hill-nc/" target="_blank" rel="noopener noreferrer">Aveda Institute of Chapel Hill</a>,
                             and I have worked as a hairdresser ever since.
                             I’m passionate about helping people feel beautiful and confident,
-                            while making sure their hair is not a source of stress and works for their day-to-day lives.
-                            To me, hair is an accessory and can be such asource of empowerment and confidence.
+                            while making sure their hair works for their day-to-day lives and is not a source of stress.
+                            To me, hair is an accessory and can be such a source of empowerment and confidence.
                         </Paragraph>
 
                         <Paragraph>
@@ -50,14 +51,11 @@ const HairPage = () => {
                         </Paragraph>
 
                         <Paragraph>
-                            It's important to me to use cruelty-free and vegan color lines where possible.
-                            I do continue to use Redken Shades EQ, but am working to replace it with Pulp Riot's brand new demi-permanent color line. (woohoo!)
-                            For permanent and semi-permanent colors I use Pulp Riot.
+                            Using cruelty-free and vegan color lines, where possible, is very important to me.
+                            For permanent and semi-permanent colors, I use <a href="https://www.pulpriothair.com/" target="_blank" rel="noopener noreferrer">Pulp Riot</a>.
+                            I do continue to use <a href="https://www.redken.com/blog/at-the-salon/shades-eq-demi-permanent-hair-gloss" target="_blank" rel="noopener noreferrer">Redken Shades EQ</a>,
+                            but am working to replace it with <a href="https://www.pulpriothair.com/" target="_blank" rel="noopener noreferrer">Pulp Riot</a>'s brand new demi-permanent color line. (Woohoo!)
                        </Paragraph>
-
-                       <Paragraph>
-                            I also use cruelty free and (almost all) vegan styling products.
-                        </Paragraph>
 
                        <BulletedList>
                             <ListItem>
@@ -77,7 +75,8 @@ const HairPage = () => {
                        </BulletedList>
 
                        <Paragraph>
-                            If you use the links above to shop, I'll receive a small commission. You can <Link to="/contact">reach out to me with questions</Link>, and I'll respond as soon as possible.
+                            If you use the links above to shop, I'll receive a small commission at no extra cost to you.
+                            You can <Link to="/contact">reach out to me with questions</Link>, and I'll respond as soon as possible.
                             Thanks for looking!
                         </Paragraph>
 

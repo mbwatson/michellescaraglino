@@ -92,15 +92,15 @@ const ContactPage = () => {
                 !sending && !sent && !error && (
                     <Fragment>
                         <form onSubmit={ handleSendMessage }>
-                            <FormControl style={{ width: '100%', maxWidth: '800px', margin: 'auto' }}>
+                            <FormControl style={{ width: '100%', maxWidth: '800px' }}>
                                 <label htmlFor="email">Name</label>
                                 <TextInput { ...text('name') } required />
                             </FormControl>
-                            <FormControl style={{ width: '100%', maxWidth: '800px', margin: 'auto' }}>
+                            <FormControl style={{ width: '100%', maxWidth: '800px' }}>
                                 <label htmlFor="email">Email Address</label>
                                 <TextInput { ...email('email') } required type="email" />
                             </FormControl>
-                            <FormControl style={{ width: '100%', maxWidth: '800px', margin: 'auto' }}>
+                            <FormControl style={{ width: '100%', maxWidth: '800px' }}>
                                 <label htmlFor="message">Your Message</label>
                                 <TextArea { ...text('message') } required placeholder="Type your message here"/>
                             </FormControl>

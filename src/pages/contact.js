@@ -4,7 +4,7 @@ import { SEO } from '../components/seo'
 import { Page } from '../layout'
 import { useFormState } from 'react-use-form-state'
 import { Title, Heading, Paragraph } from '../components/typography'
-import { Button, FormControl, TextArea, TextInput } from '../components/form'
+import { Button, FormControl, TextArea, TextInput, Select, Option } from '../components/form'
 import { Spacer } from '../components/spacer'
 import { StarLoader } from '../components/loader'
 
@@ -52,7 +52,7 @@ const ContactPage = () => {
     const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
     const [error, setError] = useState(false)
-    const [formState, { text, email }] = useFormState()
+    const [formState, { text, email, select, option }] = useFormState()
 
     const handleSendMessage = async event => {
         event.preventDefault()
@@ -61,6 +61,7 @@ const ContactPage = () => {
             const response = await axios.post('/.netlify/functions/send-contact-email', {
                 name: formState.values.name,
                 email: formState.values.email,
+                subject: formState.values.subject,
                 message: formState.values.message
             })
             if (response.status === 200) {
@@ -92,15 +93,24 @@ const ContactPage = () => {
                 !sending && !sent && !error && (
                     <Fragment>
                         <form onSubmit={ handleSendMessage }>
-                            <FormControl style={{ width: '100%', maxWidth: '800px' }}>
+                            <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="email">Name</label>
                                 <TextInput { ...text('name') } required />
                             </FormControl>
-                            <FormControl style={{ width: '100%', maxWidth: '800px' }}>
+                            <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="email">Email Address</label>
                                 <TextInput { ...email('email') } required type="email" />
                             </FormControl>
-                            <FormControl style={{ width: '100%', maxWidth: '800px' }}>
+                            <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+                                <label htmlFor="subject">Subject</label>
+                                <Select { ...select('subject') } required>
+                                    <Option value="">Select One</Option>
+                                    <Option value="Hair">Hair</Option>
+                                    <Option value="Styling">Styling</Option>
+                                    <Option value="Other">Other</Option>
+                                </Select>
+                            </FormControl>
+                            <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="message">Your Message</label>
                                 <TextArea { ...text('message') } required placeholder="Type your message here"/>
                             </FormControl>

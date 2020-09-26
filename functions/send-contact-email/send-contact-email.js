@@ -9,16 +9,20 @@ exports.handler = async (event) => {
     }
 
     const data = JSON.parse(event.body)
-    if (!data.message || !data.name || !data.email) {
-        return { statusCode: 422, body: 'Name, email, and message are required.' }
+    if (!data.message || !data.name || !data.email || !data.subject) {
+        return { statusCode: 422, body: 'Name, email, subject, and message are all required.' }
     }
 
     const mailgunData = {
         from: FROM_EMAIL_ADDRESS,
         to: CONTACT_TO_EMAIL_ADDRESS,
         'h:Reply-To': data.email,
-        subject: `New contact from ${ data.name }`,
-        text: `Name: ${ data.name }\nEmail: ${ data.email }\nMessage: ${ data.message }`
+        subject: data.subject,
+        text: `
+            Name: ${ data.name }\n
+            Email: ${ data.email }\n
+            Subject: ${ data.subject }\n
+            Message: ${ data.message }`
     }
     
 

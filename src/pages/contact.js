@@ -96,15 +96,15 @@ const ContactPage = () => {
                         <form onSubmit={ handleSendMessage }>
                             <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="email">Name</label>
-                                <TextInput { ...text('name') } required />
+                                <TextInput id="email" { ...text('name') } required />
                             </FormControl>
                             <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="email">Email Address</label>
-                                <TextInput { ...email('email') } required type="email" />
+                                <TextInput id="email" { ...email('email') } required type="email" />
                             </FormControl>
                             <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="subject">Subject</label>
-                                <Select { ...select('subject') } required>
+                                <Select id="subject" { ...select('subject') } required>
                                     <Option value="">Select One</Option>
                                     <Option value="Hair">Hair</Option>
                                     <Option value="Styling">Styling</Option>
@@ -113,11 +113,11 @@ const ContactPage = () => {
                             </FormControl>
                             <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="referrer">How did you hear about me?</label>
-                                <TextInput { ...text('referrer') } />
+                                <TextInput id="referrer" { ...text('referrer') } />
                             </FormControl>
                             <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="message">Your Message</label>
-                                <TextArea { ...text('message') } required placeholder="Type your message here"/>
+                                <TextArea id="message" { ...text('message') } required placeholder="Type your message here"/>
                             </FormControl>
                             <Paragraph center>
                                 <Button>Send</Button>

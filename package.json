@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "michelle-scaraglino-hair",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Michelle Scaraglino - hair and personal stylist",
+  "version": "2.1.0",
+  "author": "Michelle Scaraglino <ms@michellescaraglino.com>",
   "dependencies": {
     "@react-hook/window-size": "^3.0.7",
     "gatsby": "^2.23.12",
@@ -44,9 +44,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/mbwatson/michelle-scaraglino"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/mbwatson/michelle-scaraglino/issues"
   }
 }

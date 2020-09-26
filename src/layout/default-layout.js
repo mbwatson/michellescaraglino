@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import './style.css'
-import { useWindow } from '../hooks'
+import { useWindowWidth } from '@react-hook/window-size'
 import { Link } from 'gatsby'
 import { Container } from './container'
 import { Header } from './header'
@@ -23,7 +23,7 @@ const Wrapper = styled.div(({ theme }) => `
 `)
 
 export const DefaultLayout = ({ children }) => {
-    const { windowWidth } = useWindow()
+    const windowWidth = useWindowWidth()
     return (
         <Wrapper>
             <Notice style={{ fontWeight: '700' }}>

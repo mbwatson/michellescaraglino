@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SEO } from '../components/seo'
@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 import { Page } from '../layout'
 import { Title } from '../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import { useWindow } from '../hooks'
+import { useWindowWidth } from '@react-hook/window-size'
 
 const LinkText = styled(Title)(({ theme }) => `
     font-family: ${ theme.font.heading };
@@ -78,8 +78,12 @@ const StylingImageLink = styled(ImageLink)(({ compact }) => `
 `)
 
 const IndexPage = ({ data }) => {
-    const { windowWidth } = useWindow()
-    const compactThreshold = 992
+    const onlyWidth = useWindowWidth()
+    const [isCompact, setIsCompact] = useState()
+
+    useEffect(() => {
+        setIsCompact(onlyWidth <= 992)
+    }, [onlyWidth])
 
     return (
         <Page>
@@ -88,12 +92,12 @@ const IndexPage = ({ data }) => {
             <Title hidden>Home</Title>
 
             <Grid fluid style={{
-                transform: `translateX(${ windowWidth < compactThreshold ? '0' : '-3rem' })`,
-                marginTop: windowWidth < compactThreshold ? '2rem' : '-7rem'
+                transform: `translateX(${ isCompact ? '0' : '-3rem' })`,
+                marginTop: isCompact ? '2rem' : '-7rem'
             }}>
-                <Row align="center" gutterWidth={ windowWidth < compactThreshold ? 0 : 120 }>
-                    <Col xs={ 12 } lg={ 7 }>
-                        <HairImageLink to="/hair" compact={ windowWidth < compactThreshold }>
+                <Row align="center" gutterWidth={ isCompact ? 0 : 120 }>
+                    <Col xs={ 12 } sm={ 12 } md={ 12 } lg={ 7 }>
+                        <HairImageLink to="/hair" compact={ isCompact }>
                             <ImageWrapper>
                                 <StyledImg fluid={ data.hairImage.childImageSharp.fluid } />
                                 <Overlay />
@@ -101,8 +105,8 @@ const IndexPage = ({ data }) => {
                             <LinkText>HAIR</LinkText>
                         </HairImageLink>
                     </Col>
-                    <Col xs={ 12 } lg={ 5 }>
-                        <StylingImageLink to="/styling" compact={ windowWidth < compactThreshold }>
+                    <Col xs={ 12 } sm={ 12 } md={ 12 } lg={ 5 }>
+                        <StylingImageLink to="/styling" compact={ isCompact }>
                             <ImageWrapper>
                                 <StyledImg fluid={ data.stylingImage.childImageSharp.fluid } />
                                 <Overlay />

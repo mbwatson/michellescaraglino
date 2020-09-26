@@ -22,6 +22,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 16pt;
   font-family: RingsideNarrow;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;

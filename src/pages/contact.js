@@ -62,7 +62,8 @@ const ContactPage = () => {
                 name: formState.values.name,
                 email: formState.values.email,
                 subject: formState.values.subject,
-                message: formState.values.message
+                message: formState.values.message,
+                referrer: formState.values.referrer,
             })
             if (response.status === 200) {
                 setSent(true)
@@ -109,6 +110,10 @@ const ContactPage = () => {
                                     <Option value="Styling">Styling</Option>
                                     <Option value="Other">Other</Option>
                                 </Select>
+                            </FormControl>
+                            <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+                                <label htmlFor="referrer">How did you hear about me?</label>
+                                <TextInput { ...text('referrer') } />
                             </FormControl>
                             <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                                 <label htmlFor="message">Your Message</label>

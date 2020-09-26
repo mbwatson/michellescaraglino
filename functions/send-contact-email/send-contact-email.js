@@ -22,7 +22,9 @@ exports.handler = async (event) => {
             Name: ${ data.name }\n
             Email: ${ data.email }\n
             Subject: ${ data.subject }\n
-            Message: ${ data.message }`
+            Message: ${ data.message }\n
+            How did you hear about me?: ${ data.referrer }
+        `
     }
     
 

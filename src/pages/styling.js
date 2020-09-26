@@ -33,14 +33,24 @@ const StylingPage = () => {
                         <Title>Styling</Title>
 
                         <Paragraph>
-                            Since I was a teenager, I've used my clothing to express my personality. Our clothes are one of the ways we show the world who we are, whether we like it or not. I'm a firm believer that what you wear should make you feel good and feel like your best self, and in turn  you'll be projecting the image you wish for others to see. Style is extremely personal; I don't take this for granted when someone allows me into their closet. I seek to help you feel comfortable in your own skin and confident in who you are through your clothes. Sometimes this just means tweaking the fit of an item, or having help accessorizing. I don't believe in cookie cutter style, and I do believe that all bodies are worthy and beautiful. For many people,  it takes someone else's perspective for you to see yourself this way. 
+                            Since I was a teenager, I've used my clothing to express my personality.
+                            Our clothes are one of the ways we show the world who we are, whether we like it or not.
+                            I'm a firm believer that what you wear should make you feel good and feel like your best self,
+                            and in turn you'll be projecting the image you wish for others to see.
+                            Style is extremely personal;
+                            I don't take this for granted when someone allows me into their closet.
+                            I seek to help you feel comfortable in your own skin and confident in who you are through your clothes.
+                            Sometimes this just means tweaking the fit of an item, or having help accessorizing.
+                            I don't believe in cookie cutter style, and I do believe that all bodies are worthy and beautiful.
+                            For many people, it takes someone else's perspective for you to see yourself this way. 
                         </Paragraph>
                         <Paragraph>
                             Proudly serving women/femme/nonbinary clients.
                         </Paragraph>
                         <Paragraph>
                             If you're interested in any of the following services,
-                            please contact me to schedule a virtual meeting and consultation. (All services will be virtual for the time being.)
+                            please contact me to schedule a virtual meeting and consultation.
+                            (All services will be virtual for the time being.)
                         </Paragraph>
 
                         <Spacer />
@@ -58,8 +68,8 @@ const StylingPage = () => {
                             <Subheading>Outfit Curating</Subheading>
 
                             <Paragraph>
-                                Using what you have in your closet&mdash;including shoes and accessories&mdash;I help you create modern
-                        outfits that express your personality accurately and appropriately
+                                Using what you have in your closet&mdash;including shoes and accessories&mdash;I help you
+                                create modern outfits that express your personality accurately and appropriately
                                 to meet your needs for work, public speaking, photo shoots, etc.
                                 A photo gallery will be kept for easy access to streamline your mornings/meetings/engagements.
                                 If desired, I'm happy to consult with you on your hairstyle/color suitability.
@@ -82,7 +92,8 @@ const StylingPage = () => {
                                 it's important to me to shop as ethically as possible, when possible... no one is perfect, of course :).
                                 For myself, this often means second-hand gems and specialty items from ethical clothing companies.
                                 (See a list of some of my favorite sites below!).
-                                If this resonates with you, I'll be excited to help you on that journey since I'm on it as well. Let me know what's important to you, of course - and we'll go from there!
+                                If this resonates with you, I'll be excited to help you on that journey since I'm on it as well.
+                                Let me know what's important to you, of course, and we'll go from there!
                             </Paragraph>
                         </section>
 

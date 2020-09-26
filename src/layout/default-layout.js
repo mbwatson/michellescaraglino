@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import './style.css'
+import { useWindow } from '../hooks'
+import { Link } from 'gatsby'
 import { Container } from './container'
 import { Header } from './header'
 import { Main } from './main'
@@ -8,6 +10,7 @@ import { Footer } from './footer'
 import { FooterMenu } from '../components/menus'
 import { Brand } from '../components/brand'
 import { Menu } from '../components/menus'
+import { Notice } from '../components/notice'
 
 const Wrapper = styled.div(({ theme }) => `
     background: ${ theme.color.white };
@@ -20,11 +23,23 @@ const Wrapper = styled.div(({ theme }) => `
 `)
 
 export const DefaultLayout = ({ children }) => {
+    const { windowWidth } = useWindow()
     return (
         <Wrapper>
+            <Notice style={{ fontWeight: '700' }}>
+                <Link to="/covid-19" style={{ textDecoration: 'none' }}>COVID-19 Updates</Link>
+            </Notice>
             <Header>
-                <Container>
-                    <Brand style={{ maxWidth: '800px', margin: 'auto' }} />
+                <Container style={{
+                    padding: '0 1rem',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    position: 'relative',
+                }}>
+                    <Link to="/" style={{ width: '100%', zIndex: 1 }}>
+                        <Brand style={{ width: '900px', display: 'block', margin: 'auto', padding: windowWidth < 1200 ? '0 4rem 0 0' : '0' }} />
+                    </Link>
                     <Menu />
                 </Container>
             </Header>
@@ -35,7 +50,7 @@ export const DefaultLayout = ({ children }) => {
             </Main>
             <Footer>
                 <Container>
-                    <FooterMenu />
+                    <FooterMenu compact={ windowWidth < 792 } />
                     <br/>
                     <small>&copy; MICHELLE SCARAGLINO { new Date().getFullYear() }</small>
                 </Container>

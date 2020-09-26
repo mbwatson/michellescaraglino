@@ -1,18 +1,8 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import logo from '../../images/michelle-scaraglino-logo.svg'
 
 export const Brand = props => {
-    const data = useStaticQuery(graphql`
-        query {
-            placeholderImage: file(relativePath: { eq: "michelle-scaraglino-logo.png" }) {
-                childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
-            }
-        }
-    `)
-    return <Img fluid={ data.placeholderImage.childImageSharp.fluid } { ...props } />
+    return (
+        <img { ...props } src={ logo } alt=""/>
+    )
 }

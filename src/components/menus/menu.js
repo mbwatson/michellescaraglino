@@ -3,16 +3,17 @@ import styled, { useTheme } from 'styled-components'
 import { CloseIcon, HamburgerIcon } from '../icons'
 import { Link } from 'gatsby'
 
+const DRAWER_WIDTH = '450px'
+
 const Toggler = styled.button(({ theme }) => `
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
-    right: 2rem;
-    height: 8rem;
-    width: 8rem;
+    right: 0;
+    width: 4rem;
     cursor: pointer;
-    padding: 0 2rem;
-    z-index: 2;
+    padding: ${ theme.spacing.medium } 0 0 0;
+    z-index: 3;
     background-color: transparent;
     outline: none;
     border: 0;
@@ -26,16 +27,35 @@ const Toggler = styled.button(({ theme }) => `
     }
 `)
 
+const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    opacity: 0.0;
+    transition: opacity 250ms;
+    pointer-events: none;
+    z-index: -1;
+    &.active {
+        z-index: 2;
+        opacity: 0.5;
+        pointer-events: auto;
+    }
+`
+
 const Drawer = styled.nav(({ theme }) => `
     position: fixed;
     top: 0;
     left: 100%;
     height: 100vh;
-    width: 425px;
+    width: ${ DRAWER_WIDTH };
+    max-width: 90%;
     z-index: 2;
     transition: transform 100ms ease-out;
     &.open {
-        transform: translateX(-425px);
+        transform: translateX(-100%);
     }
 `)
 
@@ -48,7 +68,7 @@ const Navigation = styled.nav(({ theme }) => `
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    padding-top: 10rem;
+    padding-top: calc(3 * ${ theme.spacing.extraLarge });
     margin: 0;
 `)
 
@@ -82,24 +102,27 @@ export const Menu = () => {
     useEffect(() => {
         if (open) {
             document.body.addEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = 'hidden'
         } else {
             document.body.removeEventListener('keydown', handleKeyDown)
+            document.body.style.overflow = 'auto'
         }
     }, [open])
 
     return (
         <Fragment>
+            <Toggler onClick={ handleToggle }>
+                { open ? <CloseIcon fill={ theme.color.secondary } size={ 36 } /> : <HamburgerIcon fill={ theme.color.primary } size={ 30 }  /> }
+            </Toggler>
+            <Overlay onClick={ handleToggle } className={ open ? 'active' : null }/>
             <Drawer className={ open ? 'open' : null }>
                 <Navigation>
                     <NavItem to="/hair" onClick={ handleClickLink }>Hair</NavItem>
                     <NavItem to="/styling" onClick={ handleClickLink }>Styling</NavItem>
                     <NavItem to="/contact" onClick={ handleClickLink }>Contact</NavItem>
-                    <NavItem to="/" onClick={ handleClickLink }>Instagram</NavItem>
+                    <NavItem as="a" href="https://www.instagram.com/michellescaraglinohair" onClick={ handleClickLink } target="_blank" rel="noopener noreferrer">Instagram</NavItem>
                 </Navigation>
             </Drawer>
-            <Toggler onClick={ handleToggle }>
-                { open ? <CloseIcon fill={ theme.color.secondary } size={ 42 } /> : <HamburgerIcon fill={ theme.color.primary } size={ 36 }  /> }
-            </Toggler>
         </Fragment>
     )
 }

@@ -9,7 +9,7 @@ export const theme = {
         secondary: '#ddc8ce',
         white: '#f3f3f3',
         black: '#222',
-        darkgrey: '#334',
+        darkgrey: '#444',
         grey: '#999',
         lightgrey: '#cdd',
         success: '#5e9b8b',

@@ -1,2 +1,2 @@
-export * from './heading'
-export * from './title'
+export * from './headings'
+export * from './paragraph'

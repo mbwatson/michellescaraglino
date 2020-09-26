@@ -20,7 +20,7 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-size: 15pt;
+  font-size: 16pt;
   font-family: RingsideNarrow;
 }
 body {
@@ -66,7 +66,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   color: inherit;
   font-family: Ringside, sans-serif;
   font-weight: bold;

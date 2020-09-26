@@ -41,6 +41,13 @@ const HairPage = () => {
                             I entered the beauty industry in 2006 at
                             the <a href="https://aveda.edu/locations/location/chapel-hill-nc/" target="_blank" rel="noopener noreferrer">Aveda Institute of Chapel Hill</a>,
                             and I have worked as a hairdresser ever since.
+                            After working in commission-based salons for a few years,
+                            I ventured out on my own into a studio salon in 2013.
+                            Seven years later, I was ready for a change, and I've found my new home in a booth rent salon
+                            called <a href="https://goo.gl/maps/TLMsf6wB1kjWYWYB8" target="_blank" rel="noopener noreferrer">Local Salon</a>.
+                        </Paragraph>
+
+                        <Paragraph>
                             I’m passionate about helping people feel beautiful and confident,
                             while making sure their hair works for their day-to-day lives and is not a source of stress.
                             To me, hair is an accessory and can be such a source of empowerment and confidence.
@@ -51,7 +58,7 @@ const HairPage = () => {
                         </Paragraph>
 
                         <Paragraph>
-                            Using cruelty-free and vegan color lines, where possible, is very important to me.
+                            Using cruelty-free and vegan color lines, when possible, is very important to me.
                             For permanent and semi-permanent colors, I use <a href="https://www.pulpriothair.com/" target="_blank" rel="noopener noreferrer">Pulp Riot</a>.
                             I do continue to use <a href="https://www.redken.com/blog/at-the-salon/shades-eq-demi-permanent-hair-gloss" target="_blank" rel="noopener noreferrer">Redken Shades EQ</a>,
                             but am working to replace it with <a href="https://www.pulpriothair.com/" target="_blank" rel="noopener noreferrer">Pulp Riot</a>'s brand new demi-permanent color line. (Woohoo!)

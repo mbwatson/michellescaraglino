@@ -52,7 +52,7 @@ const ContactPage = () => {
     const [sending, setSending] = useState(false)
     const [sent, setSent] = useState(false)
     const [error, setError] = useState(false)
-    const [formState, { text, email, select, option }] = useFormState()
+    const [formState, { text, email, select }] = useFormState()
 
     const handleSendMessage = async event => {
         event.preventDefault()

@@ -70,10 +70,8 @@ const ContactPage = () => {
                 setError(false)
                 setSending(false)
             }
-            console.log(response)
         } catch (error) {
             setError(true)
-            console.log(error)
         }
     }
     
@@ -83,7 +81,11 @@ const ContactPage = () => {
 
     return (
         <Page>
-            <SEO title="Contact" />
+            <SEO
+                title="Contact"
+                description="Get in touch to ask a question about services, products, or to schedule an appointment!"
+                keywords={ ["apointment", "contact"] }
+             />
 
             <Title center>Contact</Title>
             

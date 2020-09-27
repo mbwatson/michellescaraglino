@@ -3,6 +3,8 @@ module.exports = {
     title: `Michelle Scaraglino`,
     description: ``,
     author: `Matt Watson`,
+    keywords: ["michelle scaraglino", "hair", "stylist", "raleigh", "raleigh, nc", "north carolina", "local salon", "curelty-free", "vegan", "personal styling"],
+    siteUrl: 'https://michellescaraglino.com/',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

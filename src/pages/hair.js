@@ -24,7 +24,11 @@ const HairPage = () => {
 
     return (
         <Page>
-            <SEO title="Hair" />
+            <SEO
+                title="Hair"
+                description=""
+                keywords={ ["pulp riot", "redken", "hairstory", "cult + king"] }
+             />
 
             <Grid fluid>
                 <Row gutterWidth={ 64 }>

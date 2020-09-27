@@ -24,7 +24,11 @@ const StylingPage = () => {
 
     return (
         <Page>
-            <SEO title="Styling" />
+            <SEO
+                title="Styling"
+                description=""
+                keywords={ ["personal styling", "closet edit"] }
+             />
 
             <Grid fluid>
                 <Row gutterWidth={ 64 }>

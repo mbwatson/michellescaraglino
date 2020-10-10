@@ -84,7 +84,7 @@ const ContactPage = () => {
             <SEO
                 title="Contact"
                 description="Get in touch to ask a question about services, products, or to schedule an appointment!"
-                keywords={ ["apointment", "contact"] }
+                keywords={ ["appointment", "contact"] }
              />
 
             <Title center>Contact</Title>

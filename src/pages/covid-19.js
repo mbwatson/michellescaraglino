@@ -7,7 +7,10 @@ import { BulletedList, ListItem } from '../components/list'
 
 const Covid19Page = () => (
     <Page>
-        <SEO title="COVID-19 Updates" />
+        <SEO
+            title="COVID-19 Updates"
+            description="Learn what precautions we're taking at Local Salon to keep our clients safe during the pandemic."
+        />
 
         <Grid fluid>
             <Row gutterWidth={ 64 }>

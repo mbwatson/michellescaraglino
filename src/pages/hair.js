@@ -26,7 +26,8 @@ const HairPage = () => {
         <Page>
             <SEO
                 title="Hair"
-                description=""
+                description="My passions lie in helping people feel beautiful and confident with how they present themselves
+                as well as using cruelty-free and vegan color lines."
                 keywords={ ["pulp riot", "redken", "hairstory", "cult + king"] }
              />
 

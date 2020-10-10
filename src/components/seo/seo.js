@@ -37,7 +37,7 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                     { name: `keywords`, content: metaKeywords },
                     // Mobile meta tags
                     { name: 'viewport', content: `width=device-width, initial-scale=1` },
-                    { name: 'theme-color', content: '#c1272d' },
+                    { name: 'theme-color', content: '#4d3849' },
                     // Open Graph/Facebook meta tags
                     { property: `og:title`, content: metaTitle },
                     { property: `og:description`, content: metaDescription },

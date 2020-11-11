@@ -100,7 +100,7 @@ const HairPage = () => {
                             <ListItem><Detail name="Cropped Cut" value="$50" /></ListItem>
                             <ListItem><Detail name="Short Styled Cut" value="$65" /></ListItem>
                             <ListItem><Detail name="Long Cut" value="$75" /></ListItem>
-                            <ListItem><Detail name="Color Retouch" value="$85" /></ListItem>
+                            <ListItem><Detail name="Color Retouch" value="$80" /></ListItem>
                             <ListItem><Detail name="Full Single Process Color" value="$100" /></ListItem>
                             <ListItem><Detail name="Glaze" value="$35" /></ListItem>
                             <ListItem><Detail name="Express Toner" value="$25" /></ListItem>

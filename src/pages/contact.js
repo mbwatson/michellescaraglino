@@ -75,10 +75,6 @@ const ContactPage = () => {
         }
     }
     
-    if (error) {
-        return <div>Sorry, an error occurred!</div>
-    }
-
     return (
         <Page>
             <SEO

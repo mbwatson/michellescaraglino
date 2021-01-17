@@ -11,7 +11,7 @@ const StylingPage = () => {
   const data = useStaticQuery(stylingQuery)
   const image = data.image
   const content = data.content.html
-  const quotes = data.quotes.edges.map(({ node }) => ({ text: node.frontmatter.quote, attribution: node.html }))
+  const testimonials = data.testimonials.edges.map(({ node }) => ({ quote: node.frontmatter.quote, attribution: node.html }))
 
   return (
     <Page>
@@ -30,7 +30,7 @@ const StylingPage = () => {
             <Spacer />
 
             <section>
-              { quotes.map(quote => <Quote quote={ quote.text } attribution={ quote.attribution } />) }
+              { testimonials.map(testimonial => <Quote quote={ testimonials.quote } attribution={ testimonial.attribution } />) }
             </section>
 
           </Col>
@@ -56,7 +56,7 @@ const stylingQuery = graphql`{
   content: markdownRemark(fileAbsolutePath: {regex: "/content\/styling.md/"}) {
     html
   }
-  quotes: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\/quotes/"}}) {
+  testimonials: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\/testimonials/"}}) {
     edges {
       node {
         frontmatter {

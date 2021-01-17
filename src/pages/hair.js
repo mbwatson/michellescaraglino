@@ -62,7 +62,7 @@ const hairQuery = graphql`{
       }
     }
   }
-  content: markdownRemark(fileAbsolutePath: {regex: "/hair.md/"}) {
+  content: markdownRemark(fileAbsolutePath: {regex: "/content\/hair.md/"}) {
     html
   }
   services: allHairServicesYaml {

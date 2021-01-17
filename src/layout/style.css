@@ -93,3 +93,8 @@ h1 {
     -webkit-text-fill-color: #fff;
     paint-order: stroke fill;
 }
+
+ul {
+  list-style-type: "•  ";
+  padding: 0.8rem;
+}

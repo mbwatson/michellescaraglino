@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import Img from 'gatsby-image'
 import { Page } from '../layout'

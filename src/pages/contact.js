@@ -36,10 +36,14 @@ const ErrorMessage = () => {
     <Fragment>
       <br/><br/>
       <Heading center>Oops!</Heading>
-      <Paragraph center>
-        Sorry, but an error occurred sending your message!
-        Please contact me directly at <span style={{ textDecoration: 'underline' }}>ms@michellescaraglino.com</span>.
-        <br/><br/>
+      <Paragraph center style={{ margin: '1rem auto', width: '90%', maxWidth: '600px' }}>
+        I apologize for the inconvenience, but it looks like an error occurred while sending your message!
+      </Paragraph>
+      <Paragraph center style={{ margin: '1rem auto', width: '90%', maxWidth: '600px' }}>
+        While I work on figuring <em>this</em> out, would you mind contacting me directly
+        at <span style={{ textDecoration: 'underline' }}>ms@michellescaraglino.com</span>?
+      </Paragraph>
+      <Paragraph center style={{ margin: '1rem auto', width: '90%', maxWidth: '600px' }}>
         Thanks!
       </Paragraph>
       <br/>

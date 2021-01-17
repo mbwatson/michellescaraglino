@@ -1,11 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { SEO } from '../components/seo'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import { Page } from '../layout'
-import { Subheading, Paragraph } from '../components/typography'
 import { Container as Grid, Row, Col, Hidden, Visible } from 'react-grid-system'
-import { BulletedList, ListItem } from '../components/list'
 import { Spacer } from '../components/spacer'
 import { Quote } from '../components/quote'
 

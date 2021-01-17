@@ -13,16 +13,13 @@ const Blockquote = styled.blockquote`
 const Author = styled.div`
     text-align: right;
     padding-left: 10%;
-    &::before {
-        content: "- ";
-    }
 `
 
-export const Quote = ({ quote, author }) => {
+export const Quote = ({ quote, attribution }) => {
     return (
         <Fragment>
             <Blockquote>{ quote }</Blockquote>
-            <Author>{ author }</Author>
+            <Author dangerouslySetInnerHTML={{ __html: attribution }} />
             <br/>
         </Fragment>
     )

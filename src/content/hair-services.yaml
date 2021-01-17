@@ -1,0 +1,22 @@
+- name: Cropped Cut
+  price: $50
+- name: Short Styled Cut
+  price: $65
+- name: Long Cut
+  price: $75
+- name: Color Retouch
+  price: $80
+- name: Full Single Process Color
+  price: $100
+- name: Glaze
+  price: $35
+- name: Express Toner
+  price: $25
+- name: Half Foil
+  price: $85
+- name: Full Foil
+  price: $125
+- name: Accent Foil
+  price: $7
+- name: Balayage
+  price: $125

@@ -81,3 +81,15 @@ h4 { font-size: 1.0rem; }
 h5 { font-size: 0.9rem; }
 h6 { font-size: 0.8rem; }
 
+/*
+  styles from Title component, to stlye elements from markdown
+*/
+
+h1 {
+    text-align: left;
+    font-family: Ringside;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #4d3849;
+    -webkit-text-fill-color: #fff;
+    paint-order: stroke fill;
+}

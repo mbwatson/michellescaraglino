@@ -1,0 +1,5 @@
+---
+quote: >
+  Michelle was so easy to work with. She took the time to understand what I was looking for and then made suggestions on ways to creatively use clothing I already had in my closet that just wasn't getting used. She also provided me with the language I needed to describe clothing that was flattering for my particular shape. That language was critical for being able to go out on my own to shop and find flattering outfits. She also provided feedback on how to pair clothing with shoes, jewelry and accessories to make mixing and matching easier. I've already made two key purchases using her recommendations and received a ton of compliments. Her knowledge and willingness to provide feedback has been invaluable. I highly recommend her services!
+---
+\- Melisa Galasso, Founder & CEO, [Galasso Learning Solutions](https://galassolearningsolutions.com/)

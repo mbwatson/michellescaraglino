@@ -86,12 +86,18 @@ h6 { font-size: 0.8rem; }
 */
 
 h1 {
-    text-align: left;
+    text-align: center;
     font-family: Ringside;
     text-transform: uppercase;
     -webkit-text-stroke: 1px #4d3849;
     -webkit-text-fill-color: #fff;
     paint-order: stroke fill;
+}
+
+@media screen and (min-width: 992px) {
+  h1 {
+      text-align: left;
+  }
 }
 
 ul {

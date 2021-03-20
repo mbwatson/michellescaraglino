@@ -35,7 +35,7 @@ While all of these policies are in place to protect clients and stylists inside 
 
 *   Disinfecting all of my tools and equipment between appointments, including the chair and any areas you might come into contact with
 *   Utilizing a UV-C cabinet to sanitize my cutting implements
-*   As always, you will be provided a clean cape, and sterilied combs and clips will be set out in a clean towel immediately before your appointment.
+*   As always, you will be provided a clean cape, and sterilized combs and clips will be set out in a clean towel immediately before your appointment.
 *   Wearing a clean apron for each client
 *   Letting clients in and out of the building so you do not have to touch doorknobs
 *   Wearing a 2-3 layer mask with a filter

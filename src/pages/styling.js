@@ -30,7 +30,7 @@ const StylingPage = () => {
             <Spacer />
 
             <section>
-              { testimonials.map(testimonial => <Quote quote={ testimonials.quote } attribution={ testimonial.attribution } />) }
+              { testimonials.map(testimonial => <Quote quote={ testimonial.quote } attribution={ testimonial.attribution } />) }
             </section>
 
           </Col>

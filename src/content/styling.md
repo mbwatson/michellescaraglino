@@ -18,7 +18,9 @@ Using what you have in your closet—including shoes and accessories—I help yo
 
 Once a wardrobe edit and image consulting session have been done, we will establish if you are missing key pieces to make more well-rounded outfits that make you feel your best. If you don't want to shop for items yourself, we can add on a virtual shopping session where I curate some shopping carts/lists for you to pick through.
 
-Because the fashion industry unfortunately is a major culprit of water and air pollution, as well as unethical working conditions around the globe, it's important to me to shop as ethically as possible, when possible... no one is perfect, of course :). For myself, this often means second-hand gems and specialty items from ethical clothing companies. (See a list of some of my favorite sites below!). If this resonates with you, I'll be excited to help you on that journey since I'm on it as well. Let me know what's important to you, of course, and we'll go from there!
+Because the fashion industry unfortunately is a major culprit of water and air pollution, as well as unethical working conditions around the globe, it's important to me to shop as ethically as possible, when possible... no one is perfect, of course 😉. For myself, this often means second-hand gems and specialty items from ethical clothing companies. (See a list of some of my favorite sites below!). If this resonates with you, I'll be excited to help you on that journey since I'm on it as well. Let me know what's important to you, of course, and we'll go from there!
+
+For information on pricing and packages, [get in touch with me!](/contact)
 
 ## Shopping Links
 

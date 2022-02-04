@@ -2,9 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '../components/seo'
 import { Page } from '../layout'
-import { Title, Heading, Subheading, Paragraph } from '../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import { BulletedList, ListItem } from '../components/list'
 
 const Covid19Page = () => {
   const data = useStaticQuery(covidQuery)

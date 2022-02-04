@@ -1,8 +1,8 @@
 # Hair
 
-Hello, I’m Michelle Scaraglino! I entered the beauty industry in 2006 at the [Aveda Institute of Chapel Hill](https://aveda.edu/locations/location/chapel-hill-nc/), and I have worked as a hairdresser ever since. After working in commission-based salons for a few years, I ventured out on my own into a studio salon in 2013. Seven years later, I was ready for a change, and I've found my new home in a booth rent salon called [Local Salon](https://goo.gl/maps/TLMsf6wB1kjWYWYB8).
+Hello, I’m Michelle Scaraglino! I entered the beauty industry in 2006 at the [Aveda Institute of Chapel Hill](https://aveda.edu/locations/location/chapel-hill-nc/), and I have worked as a hairdresser ever since. After working in commission-based salons for a few years, I ventured out on my own into a studio salon in 2013.After a few-year stint renting a chair in a space with a lovely group of people, I was ready to have my own space again. In 2022, I found my new home at [Mordecai Office Park](https://goo.gl/maps/rccB8q5VYTBbhKQQ8), where I have my own private studio. 
 
-I’m passionate about helping people feel beautiful and confident, while making sure their hair works for their day-to-day lives and is not a source of stress. To me, hair is an accessory and can be such a source of empowerment and confidence.
+I'm passionate about helping people feel beautiful and confident, while making sure their hair works for their day-to-day lives and is not a source of stress. To me, hair is an accessory and can be such a source of empowerment and confidence.
 
 Check out [my instagram](https://www.instagram.com/michellescaraglinohair) to see some of my work!
 

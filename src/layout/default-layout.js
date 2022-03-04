@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import './style.css'
 import { useWindowWidth } from '@react-hook/window-size'
 import { Link } from 'gatsby'
+import { useLocation } from '@reach/router'
 import { Container } from './container'
 import { Header } from './header'
 import { Main } from './main'
@@ -12,7 +13,7 @@ import { Brand } from '../components/brand'
 import { Menu } from '../components/menus'
 import { Notice } from '../components/notice'
 
-const Wrapper = styled.div(({ theme }) => `
+const Wrapper = styled.div(({ theme, border }) => `
     background: ${ theme.color.white };
     display: flex;
     flex-direction: column;
@@ -20,12 +21,27 @@ const Wrapper = styled.div(({ theme }) => `
     & ${ Main } {
         flex: 1;
     }
+    ${ border ? `border: 1rem solid crimson;` : undefined }
 `)
 
 export const DefaultLayout = ({ children }) => {
+    const { hostname } = useLocation()
     const windowWidth = useWindowWidth()
+    const [border, setBorder] = useState()
+
+    useEffect(() => {
+        if (hostname.startsWith('dev.')) {
+            console.log('dev')
+            setBorder(true)
+        } else {
+            console.log('not dev')
+            setBorder(false)
+        }
+    }, [])
+
+
     return (
-        <Wrapper>
+        <Wrapper border={ border }>
             <Notice style={{ fontWeight: '700' }}>
                 <Link to="/covid-19" style={{ textDecoration: 'none' }}>COVID-19 Updates</Link>
             </Notice>

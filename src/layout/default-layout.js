@@ -37,7 +37,7 @@ export const DefaultLayout = ({ children }) => {
             console.log('not dev')
             setBorder(false)
         }
-    }, [])
+    }, [hostname])
 
 
     return (

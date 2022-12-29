@@ -1,8 +1,8 @@
 - name: Cropped Cut
-  price: $53
+  price: $70
 - name: Short-Medium Cut
-  price: $66
-- name: Long Cut
-  price: $76
-- name: Color/hour
   price: $86
+- name: Long Cut
+  price: $97
+- name: Color/hour
+  price: $110

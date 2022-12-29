@@ -38,6 +38,11 @@ const HairPage = () => {
             
             <Heading>Services</Heading>
 
+            <p>
+              All service prices have been adjuste to be all inclusive,
+              and tipping will no longer be an option upon checkout.
+            </p>
+
             <List>
               {
                 services.map(service => (

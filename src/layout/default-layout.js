@@ -43,7 +43,7 @@ export const DefaultLayout = ({ children }) => {
     return (
         <Wrapper border={ border }>
             <Notice style={{ fontWeight: '700' }}>
-                <Link to="/covid-19" style={{ textDecoration: 'none' }}>COVID-19 Updates</Link>
+                <Link to="/policy" style={{ textDecoration: 'none' }}>Cancellation & Late Policy</Link>
             </Notice>
             <Header>
                 <Container style={{

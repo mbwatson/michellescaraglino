@@ -17,6 +17,8 @@ const gaMeasurementId = 'G-LB7JPD95Y7'
 
 const { title, description = '', keywords = [] } = Astro.props
 const metaKeywords = siteKeywords.concat(keywords).join(',')
+const path = Astro.url.pathname.replace(/\/$/, '')
+const current = (href: string) => (path === href ? 'page' : undefined)
 ---
 
 <!doctype html>
@@ -82,11 +84,11 @@ const metaKeywords = siteKeywords.concat(keywords).join(',')
       <footer>
         <div class="container">
           <nav class="footer-menu">
-            <a href="/hair">HAIR</a>
+            <a href="/hair" aria-current={current('/hair')}>HAIR</a>
             <Icon name="star" size={16} />
-            <a href="/styling">STYLING</a>
+            <a href="/styling" aria-current={current('/styling')}>STYLING</a>
             <Icon name="star" size={16} />
-            <a href="/contact">CONTACT</a>
+            <a href="/contact" aria-current={current('/contact')}>CONTACT</a>
             <Icon name="star" size={16} />
             <a href="https://www.instagram.com/michellescaraglinohair" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
           </nav>
@@ -204,6 +206,11 @@ const metaKeywords = siteKeywords.concat(keywords).join(',')
   .footer-menu a {
     text-decoration: none;
     font-weight: bold;
+  }
+  .footer-menu a[aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.35em;
   }
   .footer-menu > :global(*) {
     margin: var(--spacing-extra-small);

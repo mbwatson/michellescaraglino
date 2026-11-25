@@ -1,5 +1,8 @@
 ---
 import Icon from './Icon.astro'
+
+const path = Astro.url.pathname.replace(/\/$/, '')
+const current = (href: string) => (path === href ? 'page' : undefined)
 ---
 
 <button class="toggler" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
@@ -9,9 +12,9 @@ import Icon from './Icon.astro'
 <div class="overlay"></div>
 <nav class="drawer" id="drawer">
   <div class="navigation">
-    <a class="nav-item" href="/hair">Hair</a>
-    <a class="nav-item" href="/styling">Styling</a>
-    <a class="nav-item" href="/contact">Contact</a>
+    <a class="nav-item" href="/hair" aria-current={current('/hair')}>Hair</a>
+    <a class="nav-item" href="/styling" aria-current={current('/styling')}>Styling</a>
+    <a class="nav-item" href="/contact" aria-current={current('/contact')}>Contact</a>
     <a class="nav-item" href="https://www.instagram.com/michellescaraglinohair" target="_blank" rel="noopener noreferrer">Instagram</a>
   </div>
 </nav>
@@ -51,7 +54,6 @@ import Icon from './Icon.astro'
     padding: var(--spacing-medium) 0 0 0;
     z-index: 3;
     background-color: transparent;
-    outline: none;
     border: 0;
   }
   .toggler :global(svg) {
@@ -120,5 +122,11 @@ import Icon from './Icon.astro'
     font-size: 150%;
     font-family: var(--font-heading);
     text-decoration: none;
+  }
+  .nav-item[aria-current='page'] {
+    color: var(--color-white);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.35em;
   }
 </style>

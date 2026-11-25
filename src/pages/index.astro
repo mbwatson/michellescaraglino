@@ -99,8 +99,9 @@ import stylingImage from '../images/styling-link-hover.jpg'
     position: absolute;
     font-family: var(--font-heading);
     font-size: 175%;
-    -webkit-text-stroke: 1px var(--color-black);
-    -webkit-text-fill-color: var(--color-white);
+    -webkit-text-stroke: 2px var(--color-black);
+    -webkit-text-fill-color: var(--color-title-fill);
+    paint-order: stroke fill;
   }
   .image-link:hover .link-text {
     -webkit-text-fill-color: var(--color-black);
@@ -110,8 +111,9 @@ import stylingImage from '../images/styling-link-hover.jpg'
     min-height: 800px;
   }
   .hair-link .link-text {
-    left: calc(100% - 10rem);
+    left: 50%;
     top: -3rem;
+    transform: translateX(-50%);
   }
 
   .styling-link {
@@ -144,6 +146,7 @@ import stylingImage from '../images/styling-link-hover.jpg'
     .hair-link .link-text {
       left: calc(100% - 2rem);
       top: 5rem;
+      transform: none;
     }
     .styling-link {
       margin-top: 10rem;

@@ -29,5 +29,5 @@ For information on pricing and packages, [get in touch with me!](/contact)
 *   [Bhava Studio](https://bhavastudio.com/)
 *   [Edge of Urge](https://edgeofurge.com/)
 
-If you have a favorite, <link to="/contact">send me a link!
+If you have a favorite, [send me a link](/contact)!
 

@@ -1,0 +1,212 @@
+---
+import '../styles/global.css'
+import logo from '../images/michelle-scaraglino-logo.svg'
+import Icon from '../components/Icon.astro'
+import Menu from '../components/Menu.astro'
+
+interface Props {
+  title: string
+  description?: string
+  keywords?: string[]
+}
+
+const siteTitle = 'Michelle Scaraglino'
+const siteKeywords = ['michelle scaraglino', 'hair', 'stylist', 'raleigh', 'local salon', 'curelty-free', 'vegan', 'personal styling']
+const siteUrl = 'https://michellescaraglino.com'
+const gaMeasurementId = 'G-LB7JPD95Y7'
+
+const { title, description = '', keywords = [] } = Astro.props
+const metaKeywords = siteKeywords.concat(keywords).join(',')
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{`${title} | ${siteTitle}`}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={metaKeywords} />
+    <meta name="theme-color" content="#4d3849" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={title} />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" />
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous" />
+    {[48, 72, 96, 144, 192, 256, 384, 512].map((size) => (
+      <link rel="apple-touch-icon" sizes={`${size}x${size}`} href={`/icons/icon-${size}x${size}.png`} />
+    ))}
+    <script is:inline>
+      if (location.hostname.startsWith('dev.')) document.documentElement.classList.add('dev')
+    </script>
+    {import.meta.env.PROD && (
+      <Fragment>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ gaMeasurementId }}>
+          // respect Do Not Track, as the Gatsby gtag plugin did
+          if (!(navigator.doNotTrack === '1' || window.doNotTrack === '1')) {
+            window.dataLayer = window.dataLayer || []
+            function gtag() { dataLayer.push(arguments) }
+            gtag('js', new Date())
+            gtag('config', gaMeasurementId, { anonymize_ip: true, cookie_expires: 0 })
+          }
+        </script>
+      </Fragment>
+    )}
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="notice">
+        <Icon name="thin-star" size={16} />
+        <div class="notice-content">
+          <a href="/policy">Cancellation &amp; Late Policy</a>
+        </div>
+        <Icon name="thin-star" size={16} />
+      </div>
+      <header>
+        <div class="container header-container">
+          <a href="/" class="brand-link">
+            <img class="brand" src={logo.src} alt="" />
+          </a>
+          <Menu />
+        </div>
+      </header>
+      <main>
+        <div class="container page">
+          <slot />
+        </div>
+      </main>
+      <footer>
+        <div class="container">
+          <nav class="footer-menu">
+            <a href="/hair">HAIR</a>
+            <Icon name="star" size={16} />
+            <a href="/styling">STYLING</a>
+            <Icon name="star" size={16} />
+            <a href="/contact">CONTACT</a>
+            <Icon name="star" size={16} />
+            <a href="https://www.instagram.com/michellescaraglinohair" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          </nav>
+          <br />
+          <small>&copy; MICHELLE SCARAGLINO {new Date().getFullYear()}</small>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .wrapper {
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  :global(.dev) .wrapper {
+    border: 1rem solid crimson;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    text-align: inherit;
+  }
+
+  .notice {
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-medium);
+    font-weight: 700;
+  }
+  .notice-content {
+    vertical-align: middle;
+    margin: 0 var(--spacing-extra-small);
+    font-family: var(--font-heading);
+  }
+  .notice-content a {
+    text-decoration: none;
+  }
+
+  header {
+    min-height: 6rem;
+    padding: var(--spacing-medium);
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-container {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  .brand-link {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .brand {
+    width: 900px;
+    display: block;
+    margin: auto;
+    padding: 0 4rem 0 0;
+  }
+
+  main {
+    flex: 1;
+    background-color: transparent;
+    padding: var(--spacing-medium);
+  }
+  @media (min-width: 768px) {
+    main {
+      padding: var(--spacing-large);
+    }
+  }
+
+  .page {
+    animation: fade-in 600ms ease-out;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  footer {
+    background-color: transparent;
+    padding: var(--spacing-extra-large);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 792px) {
+    .footer-menu {
+      flex-direction: row;
+    }
+  }
+  .footer-menu a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .footer-menu > :global(*) {
+    margin: var(--spacing-extra-small);
+    font-family: var(--font-heading) !important;
+  }
+</style>

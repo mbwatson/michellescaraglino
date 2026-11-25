@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection, getEntry, render } from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+import Spacer from '../components/Spacer.astro'
+import image from '../images/michelle-hair.jpg'
+
+const { Content } = await render((await getEntry('pages', 'hair'))!)
+const services = (await getCollection('hairServices')).sort((a, b) => Number(a.id) - Number(b.id))
+---
+
+<Layout
+  title="Hair"
+  description="My passions lie in helping people feel beautiful and confident with how they present themselves as well as using cruelty-free and vegan color lines."
+  keywords={['pulp riot', 'redken', 'hairstory', 'cult + king']}
+>
+  <div class="grid">
+    <div class="row">
+      <div class="col">
+        <div class="wide-only"><br /><br /><br /><br /><br /></div>
+        <Image class="image" src={image} alt="Michelle Scaraglino" widths={[300, 600, image.width]} sizes="(max-width: 600px) 100vw, 600px" />
+      </div>
+      <div class="col">
+        <div class="narrow-only"><br /><br /></div>
+        <div class="content"><Content /></div>
+
+        <Spacer />
+
+        <h2 class="heading">Services</h2>
+
+        <p>
+          All service prices have been adjuste to be all inclusive,
+          and tipping will no longer be an option upon checkout.
+        </p>
+
+        <ul class="list">
+          {services.map(({ data }) => (
+            <li><span class="service-name">{data.name}</span> &ndash; <span>{data.price}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .grid {
+    position: relative;
+    padding: 0 15px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -32px;
+  }
+  .col {
+    position: relative;
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-height: 1px;
+    padding: 0 32px;
+  }
+  @media (min-width: 992px) {
+    .col {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+  }
+  .image {
+    display: block;
+    width: 100%;
+    height: 900px;
+    margin: 0;
+    object-fit: cover;
+  }
+  .list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .list li {
+    line-height: 1.5;
+  }
+  .service-name {
+    font-family: var(--font-heading);
+  }
+</style>

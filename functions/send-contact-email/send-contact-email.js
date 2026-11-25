@@ -1,18 +1,23 @@
-require('dotenv').config()
-
 const {
   MAILGUN_API_KEY,
   MAILGUN_DOMAIN,
-  MAILGUN_URL,
   FROM_EMAIL_ADDRESS,
   CONTACT_TO_EMAIL_ADDRESS,
 } = process.env
 
-const mailgun = require('mailgun-js')({
-  apiKey: MAILGUN_API_KEY,
-  domain: MAILGUN_DOMAIN,
-  url: MAILGUN_URL,
-})
+// Mailgun's US API host, which mailgun-js always used
+const sendMailgunMessage = async (message) => {
+  const response = await fetch(`https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${Buffer.from(`api:${MAILGUN_API_KEY}`).toString('base64')}`,
+    },
+    body: new URLSearchParams(message),
+  })
+  if (!response.ok) {
+    throw new Error(`Mailgun responded ${response.status}: ${await response.text()}`)
+  }
+}
 
 const successResponse = {
   statusCode: 200,
@@ -113,7 +118,7 @@ How did you hear about me?: ${referrer}
   }
 
   try {
-    await mailgun.messages().send(mailgunData)
+    await sendMailgunMessage(mailgunData)
 
     return {
       statusCode: 200,

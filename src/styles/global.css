@@ -1,0 +1,160 @@
+:root {
+  --color-primary: #4d3849;
+  --color-primary-light: #a35470;
+  --color-secondary: #ddc8ce;
+  --color-white: #f3f3f3;
+  --color-black: #222;
+  --font-heading: Ringside;
+  --font-paragraph: RingsideNarrow;
+  --spacing-extra-small: 0.25rem;
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+  --spacing-extra-large: 4rem;
+}
+
+@font-face {
+  font-family: Ringside;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/RingsideExtraWide-Book.otf);
+}
+@font-face {
+  font-family: RingsideNarrow;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url(../fonts/RingsideNarrow-Light.otf);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16pt;
+  font-family: RingsideNarrow;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  transition: color 250ms;
+  color: #4d3849;
+}
+a:active,
+a:hover {
+  outline-width: 0;
+  color: #a35470;
+}
+
+small {
+  font-size: 75%;
+}
+
+body {
+  color: #4d3849;
+  font: 100% / 1.33 RingsideNarrow;
+  font-family: RingsideNarrow;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+img {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.45rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  color: inherit;
+  font-family: Ringside, sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 2px;
+}
+h1 { font-size: 2rem; }
+h3 { font-size: 1.1rem; }
+h4 { font-size: 1.0rem; }
+h5 { font-size: 0.9rem; }
+h6 { font-size: 0.8rem; }
+
+/*
+  styles from Title component, to stlye elements from markdown
+*/
+
+h1 {
+    text-align: center;
+    font-family: Ringside;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #4d3849;
+    -webkit-text-fill-color: #fff;
+    paint-order: stroke fill;
+}
+
+@media screen and (min-width: 992px) {
+  h1 {
+      text-align: left;
+  }
+}
+
+ul {
+  list-style-type: "•  ";
+  padding: 0.8rem;
+}
+
+/* Title, Heading, and Paragraph styles for page elements outside markdown */
+
+.title {
+  font-family: Ringside;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px var(--color-primary);
+  -webkit-text-fill-color: var(--color-white);
+  paint-order: stroke fill;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .title { text-align: left; }
+}
+
+.heading {
+  font-family: Ringside;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .heading { text-align: left; }
+}
+
+.paragraph {
+  font-family: var(--font-paragraph);
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .title.center, .heading.center { text-align: center; }
+}
+.paragraph.center { text-align: center; }
+
+/* show or hide line breaks around the narrow (below 768px) layout */
+.wide-only { display: none; }
+@media (min-width: 768px) {
+  .wide-only { display: block; }
+  .narrow-only { display: none; }
+}

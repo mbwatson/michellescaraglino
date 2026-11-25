@@ -13,7 +13,19 @@ const testimonials = await Promise.all(
 )
 ---
 
-<Layout title="Styling" keywords={['personal styling', 'closet edit']}>
+<Layout
+  title="Styling"
+  keywords={['personal styling', 'closet edit']}
+  stars={[
+    { x: 84, y: 8, size: 150 },
+    { x: 72, y: 30, size: 380, phone: true },
+    { x: 90, y: 50, size: 110, thin: false },
+    { x: 3, y: 44, size: 50 },
+    { x: 62, y: 66, size: 60 },
+    { x: 80, y: 82, size: 260 },
+    { x: 3, y: 75, size: 150, phone: true },
+  ]}
+>
   <div class="grid">
     <div class="row">
       <div class="col col-content">

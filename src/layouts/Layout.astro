@@ -3,11 +3,13 @@ import '../styles/global.css'
 import logo from '../images/michelle-scaraglino-logo.svg'
 import Icon from '../components/Icon.astro'
 import Menu from '../components/Menu.astro'
+import StarField, { type Star } from '../components/StarField.astro'
 
 interface Props {
   title: string
   description?: string
   keywords?: string[]
+  stars?: Star[]
 }
 
 const siteTitle = 'Michelle Scaraglino'
@@ -15,7 +17,7 @@ const siteKeywords = ['michelle scaraglino', 'hair', 'stylist', 'raleigh', 'loca
 const siteUrl = 'https://michellescaraglino.com'
 const gaMeasurementId = 'G-LB7JPD95Y7'
 
-const { title, description = '', keywords = [] } = Astro.props
+const { title, description = '', keywords = [], stars } = Astro.props
 const metaKeywords = siteKeywords.concat(keywords).join(',')
 const path = Astro.url.pathname.replace(/\/$/, '')
 const current = (href: string) => (path === href ? 'page' : undefined)
@@ -61,6 +63,7 @@ const current = (href: string) => (path === href ? 'page' : undefined)
   </head>
   <body>
     <div class="wrapper">
+      {stars && <StarField stars={stars} />}
       <div class="notice">
         <Icon name="thin-star" size={16} />
         <div class="notice-content">
@@ -102,6 +105,8 @@ const current = (href: string) => (path === href ? 'page' : undefined)
 
 <style>
   .wrapper {
+    position: relative;
+    isolation: isolate;
     background: var(--color-white);
     display: flex;
     flex-direction: column;

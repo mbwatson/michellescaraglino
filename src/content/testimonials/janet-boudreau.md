@@ -1,4 +1,5 @@
 ---
+order: 1
 quote: >
   ​I'm still smiling every time I think of you and our time together... You shine bright and have a lot to give. I feel much more confident going into these photo shoots after having worked with you.
 ---

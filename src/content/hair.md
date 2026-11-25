@@ -11,4 +11,4 @@ Using cruelty-free and vegan color lines is very important to me. I'm so happy t
 *   [Amika](https://loveamika.com/?cn=michellescaraglinohair%2Flocalsalon&offerid=43923&rfsn=3972380.935c7a&utm_campaign=3972380.935c7a&utm_medium=affiliate&utm_source=refersion) is such a great line, and—while I am always keeping my eyes open for a new favorite—this is what I carry currently. They have a handful of products that contain lanolin or honey, and will happily direct you to the products that do not.
 *   I also use a handful of [Hairstory](https://www.hairstory.com/?r=300000052) products — not an entirely vegan line, by any means — but they do make some amazing styling products.
 
-If you use the links above to shop, I'll receive a small commission at no extra cost to you. You can <link to="/contact">reach out to me with questions, and I'll respond as soon as possible. Thanks for looking!
+If you use the links above to shop, I'll receive a small commission at no extra cost to you. You can [reach out to me](/contact) with questions, and I'll respond as soon as possible. Thanks for looking!

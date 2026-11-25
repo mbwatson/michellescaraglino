@@ -1,0 +1,109 @@
+---
+// Faint star watermarks behind a page's content, drifting slightly as the page scrolls.
+// x and y place a star's center as percentages of the page; on phones only stars marked
+// `phone` show, pinned half off the nearer side edge.
+import Icon from './Icon.astro'
+
+export interface Star {
+  x: number
+  y: number
+  size: number
+  thin?: boolean
+  phone?: boolean
+}
+
+interface Props {
+  stars: Star[]
+}
+
+const { stars } = Astro.props
+---
+
+<div class="star-field" aria-hidden="true">
+  {stars.map(({ x, y, size, thin = true, phone }) => (
+    <Icon
+      name={thin ? 'thin-star' : 'star'}
+      size={size}
+      class:list={['star', x < 50 ? 'left' : 'right', { phone }]}
+      style={`left: ${x}%; top: ${y}%; --s: ${size}`}
+    />
+  ))}
+</div>
+
+<script>
+  // fallback for browsers without CSS scroll-driven animations
+  const field = document.querySelector<HTMLElement>('.star-field')
+  if (field && !CSS.supports('animation-timeline: scroll()') && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    let queued = false
+    const update = () => {
+      queued = false
+      const max = document.documentElement.scrollHeight - innerHeight
+      field.style.setProperty('--p', String(max > 0 ? Math.min(scrollY / max, 1) : 0))
+    }
+    const queue = () => {
+      if (!queued) {
+        queued = true
+        requestAnimationFrame(update)
+      }
+    }
+    addEventListener('scroll', queue, { passive: true })
+    addEventListener('resize', queue)
+    update()
+  }
+</script>
+
+<style>
+  .star-field {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .star-field :global(.star) {
+    position: absolute;
+    translate: -50% -50%;
+    opacity: 0.05;
+  }
+
+  @media (max-width: 767px) {
+    .star-field :global(.star:not(.phone)) {
+      display: none;
+    }
+    .star-field :global(.star) {
+      scale: 0.6;
+    }
+    .star-field :global(.star.left) {
+      left: 0 !important;
+    }
+    .star-field :global(.star.right) {
+      left: 100% !important;
+    }
+  }
+
+  /* bigger stars read as nearer, so they lag the page less and turn less */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .star-field :global(.star) {
+        animation: drift linear both;
+      }
+      /* a separate rule, or the minifier folds the timeline into the shorthand, which drops it */
+      .star-field > :global(svg.star) {
+        animation-timeline: scroll(root);
+      }
+    }
+  }
+  /* browsers without scroll-driven animations (Firefox): the script below sets --p, the scroll progress */
+  @supports not (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .star-field :global(.star) {
+        transform: translateY(calc((360px - var(--s) * 0.6px) * var(--p, 0))) rotate(calc((60deg - var(--s) * 0.1deg) * var(--p, 0)));
+      }
+    }
+  }
+  @keyframes drift {
+    to {
+      transform: translateY(calc(360px - var(--s) * 0.6px)) rotate(calc(60deg - var(--s) * 0.1deg));
+    }
+  }
+</style>

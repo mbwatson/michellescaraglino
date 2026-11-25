@@ -1,0 +1,250 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Icon from '../components/Icon.astro'
+import Spacer from '../components/Spacer.astro'
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch to ask a question about services, products, or to schedule an appointment!"
+  keywords={['appointment', 'contact']}
+  stars={[
+    { x: 9, y: 30, size: 220, phone: true },
+    { x: 90, y: 20, size: 90 },
+    { x: 87, y: 56, size: 300, phone: true },
+    { x: 4, y: 70, size: 70, thin: false },
+    { x: 14, y: 88, size: 130 },
+  ]}
+>
+  <h1 class="title center">Contact</h1>
+
+  <div class="sending" hidden>
+    <br /><br />
+    <div class="loader">
+      <div class="loader-tray">
+        <span class="loader-star"><Icon name="star" size={24} /></span>
+      </div>
+      <div class="loader-text">Sending...</div>
+    </div>
+  </div>
+
+  <div class="success" hidden>
+    <br /><br />
+    <h2 class="heading center">Thanks!</h2>
+    <p class="paragraph center">
+      Your message has been sent!
+      I'll respond to you at <span class="return-email" style="text-decoration: underline"></span> shortly!
+    </p>
+    <br />
+    <Spacer />
+  </div>
+
+  <div class="error" hidden>
+    <br /><br />
+    <h2 class="heading center">Oops!</h2>
+    <p class="paragraph center narrow">
+      I apologize for the inconvenience, but it looks like an error occurred while sending your message!
+    </p>
+    <p class="paragraph center narrow">
+      While I work on figuring <em>this</em> out, would you mind contacting me directly
+      at <span style="text-decoration: underline">ms@michellescaraglino.com</span>?
+    </p>
+    <p class="paragraph center narrow">Thanks!</p>
+    <br />
+    <Spacer />
+  </div>
+
+  <div class="form-section">
+    <form>
+      <div class="form-control">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
+      </div>
+      <div class="form-control">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" required />
+      </div>
+      <div class="form-control honeypot">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" autocomplete="off" tabindex="-1" />
+      </div>
+      <div class="form-control">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="">Select One</option>
+          <option value="Hair">Hair</option>
+          <option value="Styling">Styling</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="referrer">How did you hear about me?</label>
+        <input id="referrer" name="referrer" type="text" />
+      </div>
+      <div class="form-control">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required placeholder="Type your message here"></textarea>
+      </div>
+      <p class="paragraph center">
+        <button>Send</button>
+      </p>
+    </form>
+    <br />
+    <Spacer />
+  </div>
+</Layout>
+
+<script>
+  const formLoadedAt = Date.now()
+  const form = document.querySelector<HTMLFormElement>('.form-section form')!
+  const show = (selector: string) => {
+    for (const section of ['.form-section', '.sending', '.success', '.error']) {
+      document.querySelector<HTMLElement>(section)!.hidden = section !== selector
+    }
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    const values = Object.fromEntries(new FormData(form))
+    show('.sending')
+    try {
+      const response = await fetch('/.netlify/functions/send-contact-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...values, elapsedTime: Date.now() - formLoadedAt }),
+      })
+      if (!response.ok) throw new Error(`Status ${response.status}`)
+      document.querySelector('.return-email')!.textContent = String(values.email)
+      show('.success')
+    } catch {
+      show('.error')
+    }
+  })
+</script>
+
+<style>
+  .narrow {
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 800px;
+  }
+  .form-control > label {
+    padding: 0.5rem 0;
+    font-weight: bold;
+  }
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  input,
+  select,
+  textarea {
+    flex: 1;
+    padding: 0.5rem;
+    font: inherit;
+    border-radius: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-primary);
+    transition: border-color 250ms;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--color-black);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 250px;
+  }
+
+  button {
+    background-color: #fff;
+    border-radius: 0;
+    display: inline-block;
+    font-size: 100%;
+    font-family: var(--font-heading);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 250ms;
+  }
+  button:hover,
+  button:focus {
+    background-color: var(--color-secondary);
+  }
+
+  .loader {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .loader-tray {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .loader-star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: throb 1500ms ease-out infinite;
+    transform-origin: center center;
+  }
+  .loader-text {
+    text-align: center;
+    color: #333;
+    opacity: 0.75;
+    animation: glow 1500ms ease-out infinite;
+    padding: 0.5rem;
+  }
+  @keyframes throb {
+    0% {
+      opacity: 0;
+      transform: scale(1) rotate(180deg);
+    }
+    33.6% {
+      transform: scale(1.3) rotate(180deg);
+    }
+    42.2% {
+      transform: scale(0.4) rotate(180deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5) rotate(90deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  @keyframes glow {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+</style>

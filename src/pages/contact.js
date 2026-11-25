@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 import axios from 'axios'
 import { SEO } from '../components/seo'
 import { Page } from '../layout'
@@ -22,8 +22,8 @@ const SuccessMessage = ({ returnEmail }) => {
       <br/><br/>
       <Heading center>Thanks!</Heading>
       <Paragraph center>
-        Your message has been sent, and I'll respond to you
-        at <span style={{ textDecoration: 'underline' }}>{ returnEmail }</span> shortly!
+        Your message has been sent!
+        I'll respond to you at <span style={{ textDecoration: 'underline' }}>{ returnEmail }</span> shortly!
       </Paragraph>
       <br/>
       <Spacer />
@@ -58,6 +58,8 @@ const ContactPage = () => {
   const [error, setError] = useState(false)
   const [formState, { text, email, select }] = useFormState()
 
+  const formLoadedAt = useRef(Date.now())
+
   const handleSendMessage = async event => {
     event.preventDefault()
     setSending(true)
@@ -67,7 +69,9 @@ const ContactPage = () => {
         email: formState.values.email,
         subject: formState.values.subject,
         message: formState.values.message,
+        website: formState.values.website,
         referrer: formState.values.referrer,
+        elapsedTime: Date.now() - formLoadedAt.current,
       })
       if (response.status === 200) {
         setSent(true)
@@ -76,9 +80,10 @@ const ContactPage = () => {
       }
     } catch (error) {
       setError(true)
+      setSending(false)
     }
   }
-  
+
   return (
     <Page>
       <SEO
@@ -88,7 +93,7 @@ const ContactPage = () => {
        />
 
       <Title center>Contact</Title>
-      
+
       { sending && <SendingMessage /> }
       { sent && <SuccessMessage returnEmail={ formState.values.email } /> }
       { error && <ErrorMessage /> }
@@ -97,12 +102,29 @@ const ContactPage = () => {
           <Fragment>
             <form onSubmit={ handleSendMessage }>
               <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
-                <label htmlFor="email">Name</label>
-                <TextInput id="email" { ...text('name') } required />
+                <label htmlFor="name">Name</label>
+                <TextInput id="name" { ...text('name') } required />
               </FormControl>
               <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                 <label htmlFor="email">Email Address</label>
                 <TextInput id="email" { ...email('email') } required type="email" />
+              </FormControl>
+              <FormControl style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  overflow: 'hidden',
+                }}>
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    autoComplete="off"
+                    tabIndex="-1"
+                    {...text('website')}
+                />
               </FormControl>
               <FormControl style={{ width: '100%', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
                 <label htmlFor="subject">Subject</label>
@@ -130,18 +152,10 @@ const ContactPage = () => {
           </Fragment>
         )
       }
-       
+
 
     </Page>
   )
 }
 
 export default ContactPage
-
-// <div style={{ width: '700px', height: '500px', position: 'relative', maxWidth: '100%' }}>
-  // <iframe width='100%' height='500px' src='https://forms.vagaro.com/FormResponse/NAqX2yiEuJWZAu5NIUMH2xpOgXhez5h3DtEKUUHKfzC0?embeded=true'
-    // style={{ position: 'absolute', top: 0, bottom: 0, left:0,  right:0 }} frameborder='0' marginwidth='0' marginheight='0'
-  // >
-    // Loading...
-  // </iframe>
-// </div>

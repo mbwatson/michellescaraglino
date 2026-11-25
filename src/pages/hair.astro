@@ -1,18 +1,20 @@
 ---
-import { Image } from 'astro:assets'
-import { getCollection, getEntry, render } from 'astro:content'
-import Layout from '../layouts/Layout.astro'
-import Spacer from '../components/Spacer.astro'
-import image from '../images/michelle-hair.jpg'
+import { Image } from "astro:assets";
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Spacer from "../components/Spacer.astro";
+import image from "../images/michelle-hair.jpg";
 
-const { Content } = await render((await getEntry('pages', 'hair'))!)
-const services = (await getCollection('hairServices')).sort((a, b) => Number(a.id) - Number(b.id))
+const { Content } = await render((await getEntry("pages", "hair"))!);
+const services = (await getCollection("hairServices")).sort(
+  (a, b) => Number(a.id) - Number(b.id),
+);
 ---
 
 <Layout
   title="Hair"
   description="My passions lie in helping people feel beautiful and confident with how they present themselves as well as using cruelty-free and vegan color lines."
-  keywords={['pulp riot', 'redken', 'hairstory', 'cult + king']}
+  keywords={["pulp riot", "redken", "hairstory", "cult + king"]}
   stars={[
     { x: 8, y: 14, size: 90 },
     { x: 80, y: 8, size: 40, thin: false },
@@ -25,25 +27,45 @@ const services = (await getCollection('hairServices')).sort((a, b) => Number(a.i
   <div class="grid">
     <div class="row">
       <div class="col">
-        <div class="wide-only"><br /><br /><br /><br /><br /></div>
-        <Image class="image" src={image} alt="Michelle Scaraglino" widths={[300, 600, image.width]} sizes="(max-width: 600px) 100vw, 600px" />
+        <div class="wide-only">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
+        <Image
+          class="image"
+          src={image}
+          alt="Michelle Scaraglino"
+          widths={[300, 600, image.width]}
+          sizes="(max-width: 600px) 100vw, 600px"
+        />
       </div>
       <div class="col">
-        <div class="narrow-only"><br /><br /></div>
-        <div class="content"><Content /></div>
+        <div class="narrow-only">
+          <br />
+          <br />
+        </div>
+        <div class="content">
+          <Content />
+        </div>
 
         <Spacer />
 
         <h2 class="heading">Services</h2>
 
         <p>
-          All service prices have been adjuste to be all inclusive,
-          and tipping will no longer be an option upon checkout.
+          All service prices have been adjusted to be all inclusive, and tipping
+          will no longer be an option upon checkout.
         </p>
 
         <ul class="list">
           {services.map(({ data }) => (
-            <li><span class="service-name">{data.name}</span> &ndash; <span>{data.price}</span></li>
+            <li>
+              <span class="service-name">{data.name}</span> &ndash;{" "}
+              <span>{data.price}</span>
+            </li>
           ))}
         </ul>
       </div>
